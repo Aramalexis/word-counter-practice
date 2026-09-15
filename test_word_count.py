@@ -13,6 +13,10 @@ class TestCountWords(unittest.TestCase):
     def test_empty_string(self):
         self.assertEqual(count_words(""), {})
 
+    def test_case_and_punctuation_are_normalized(self):
+        result = count_words("Hello, hello! HELLO world.")
+        self.assertEqual(result, {"hello": 3, "world": 1})
+
 
 if __name__ == "__main__":
     unittest.main()
